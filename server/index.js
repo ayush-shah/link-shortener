@@ -17,19 +17,21 @@ app.post('/link', function(req, res) {
     fs.writeFile(
       process.cwd() + '/assets/link.json',
       JSON.stringify(json),
-      function(err) {
-        if (err) throw err
-        console.log('Saved!')
-      }
+      function(err) {}
     )
+    return res.send(json)
   })
-  return res.send('Added')
 })
 
+app.post('/get', function(req, res) {
+  readFile(process.cwd() + '/assets/link.json').then(data => {
+    return res.send(data.toString())
+  })
+})
 app.post('/name', function(req, res) {
   readFile(process.cwd() + '/assets/link.json').then(data => {
     let json = JSON.parse(data.toString())
-    return res.send({'link':json[req.body['name']]})
+    return res.send({ link: json[req.body['name']] })
   })
 })
 async function start() {

@@ -8,7 +8,6 @@
 <script>
 import Footer from '@/components/Footer.vue'
 import Header from '@/components/Header.vue'
-
 export default {
   name: 'default',
   components: {
@@ -38,6 +37,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  background: url('/download.png');
+  background-size: cover;
 }
 
 *,
